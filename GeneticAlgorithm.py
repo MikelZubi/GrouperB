@@ -21,19 +21,17 @@ def geneticAlgorithm(y,n,p):
             min = float('inf')
             minp = -1
             for j in range(len(results)):
-                if(min > results[j]):
+                if(min > results[j] and not j in best):
                     min = results[j]
                     minp = j
-            results.pop(minp)
             best[i] = minp
         for i in range(len(worst)):
             max = 0
             maxp = -1
             for j in range(len(results)):
-                if(max < results[j]):
+                if(max < results[j] and not j in worst):
                     max = results[j]
                     maxp = j
-            results.pop(maxp)
             worst[i] = maxp
         for i in range(len(worst)):
             pob[worst[i]] = ugaldu(pob[best[i]],pob[best[i*2]],n)
@@ -77,7 +75,7 @@ def conbergetion(pob,n):
             values[pob[i][j]]+= 1
         for elem in values:
             if elem/len(pob) > 0.95:
-                converged[i] = True
+                converged[j] = True
                 break
     return converged
 
