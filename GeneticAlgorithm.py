@@ -9,7 +9,7 @@ def geneticAlgorithm(y,n,p):
     worst = [-1 for i in range(int(p * 0.2))]
     finish = False
     count = 0
-    while count<=25000 and not finish:
+    while count<=50000 and not finish:
         results = [result.result(translator(pob[i],n),y) for i in range(p)]
         min = float('inf')
         for j in range(len(results)):
@@ -71,9 +71,9 @@ def translator(x,n):
 
 def conbergetion(pob,n):
     converged = [False for i in range(len(pob[0]))]
-    for i in range(len(pob)):
-        for j in range(len(pob[i])):
-            values = [0 for i in range(n)]
+    for j in range(len(pob[0])):
+        values = [0 for i in range(n)]
+        for i in range(len(pob)):
             values[pob[i][j]]+= 1
         for elem in values:
             if elem/len(pob) > 0.95:
