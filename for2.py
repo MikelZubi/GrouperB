@@ -30,16 +30,11 @@ def linearProgramming(y1):
                 mat1[i][j] = mat1[i][j - 1]
                 mat2[i][j] = mat2[i][j - 1]
     s = mat2[z - 1][n - 1]
-    print(mat1[z-1][n-1])
-    print(z)
     i = mat1[z - 1][n - 1]
     v = [s]
     while i - p[s] > 0:
         i = i - p[s]
         s = mat2[i][s - 1]
-        print(s)
-        print(i)
-        print(p[s])
 
         v.append(s)
     for i in range(len(v)):
@@ -48,8 +43,6 @@ def linearProgramming(y1):
     for i in range(n):
         if i not in v:
             e[1].append(i)
-    print("E")
-    print(e)
     return e
 
 
