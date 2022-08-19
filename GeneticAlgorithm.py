@@ -17,6 +17,8 @@ def geneticAlgorithm(y,n,p):
                 min = results[j]
         print("GENERATION ", count)
         print("VALUE ", min)
+        if (min == 0.0):
+            break
         for i in range(len(best)):
             min = float('inf')
             minp = -1
@@ -53,7 +55,7 @@ def ugaldu(x1, x2, n):
     x3 = []
     for i in range(len(x1)):
         mut = rd.randint(0, 100)
-        if (mut >= 98):
+        if (mut >= 98 and (n>2 or x1[i] == x2[i])):
             r = [j for j in range(n) if j != x1[i] and j != x2[i]]
         else:
             r = [x1[i], x2[i]]
