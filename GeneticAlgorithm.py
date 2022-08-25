@@ -10,7 +10,7 @@ def geneticAlgorithm(y,n,p):
     finish = False
     count = 0
     while count<=50000 and not finish:
-        results = [result.result(translator(pob[i],n),y) for i in range(p)]
+        results = [result.resultV(pob[i],y,n) for i in range(p)]
         min = float('inf')
         for j in range(len(results)):
             if (min > results[j]):

@@ -13,7 +13,6 @@ def BruteForce(y,n):
             if(p[i] != l):
                 p[i] += 1
                 e = kalkulatuIter(p,y,n)
-                print(p)
                 if(best > e):
                     best = e
                     bestp = cp.deepcopy(p)
