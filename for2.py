@@ -10,7 +10,7 @@ def linearProgramming(y1):
             maxi = lag
     p = []
     for i in y:
-        p.append(int(i * (10 ** maxi)))
+        p.append(round(i * (10 ** maxi)))
     n = len(p)
     z = sum(p) // 2 + 1
     mat1 = [[0 for j in range(n)] for i in range(z)]
@@ -31,11 +31,13 @@ def linearProgramming(y1):
                 mat2[i][j] = mat2[i][j - 1]
     s = mat2[z - 1][n - 1]
     i = mat1[z - 1][n - 1]
+    print(sum(p))
+    print(i)
+    print(z-i)
     v = [s]
     while i - p[s] > 0:
         i = i - p[s]
         s = mat2[i][s - 1]
-
         v.append(s)
     for i in range(len(v)):
         v[i] = x[v[i]]

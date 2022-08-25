@@ -2,21 +2,21 @@ import copy as cp
 
 def result(x,y):
     xy = cp.deepcopy(x)
-    for i in range(0,len(xy)):
-        for j in range(0,len(xy[i][:])):
-            xy[i][j] = y[int(x[i][j])]
-    counter = []
+    for i in range(len(xy)):
+        for j in range(len(xy[i][:])):
+            xy[i][j] = y[x[i][j]]
+    counter = 0.0
     perf = sum(y)/len(xy)
     for i in range(0,len(xy)):
-        counter.append(abs(sum(xy[i][:])-perf))
-    return sum(counter)
+        counter += abs(sum(xy[i][:])-perf)
+    return counter
 
 def resultV(x,y,n):
     perf = sum(y)/n
     value = [0 for i in range(n)]
     for i in range(len(y)):
         value[x[i]]+=y[i]
-    counter = 0
+    counter = 0.0
     for i in range(n):
         counter += abs(value[i]-perf)
     return counter

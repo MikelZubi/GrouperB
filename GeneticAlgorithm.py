@@ -10,13 +10,15 @@ def geneticAlgorithm(y,n,p):
     finish = False
     count = 0
     while count<=50000 and not finish:
+        printif = count % 100 == 0
         results = [result.resultV(pob[i],y,n) for i in range(p)]
         min = float('inf')
         for j in range(len(results)):
             if (min > results[j]):
                 min = results[j]
-        print("GENERATION ", count)
-        print("VALUE ", min)
+        if (printif):
+            print("GENERATION ", count)
+            print("VALUE ", min)
         if (min == 0.0):
             break
         for i in range(len(best)):
@@ -40,7 +42,8 @@ def geneticAlgorithm(y,n,p):
         count += 1
         conb = conbergetion(pob, n)
         finish = all(conb)
-        print("CONVERGED ", conb.count(True))
+        if(printif or finish):
+            print("CONVERGED ", conb.count(True))
     results = [result.result(translator(pob[i], n), y) for i in range(p)]
     min = float('inf')
     minp = -1
